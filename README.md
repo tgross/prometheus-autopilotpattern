@@ -39,5 +39,5 @@ Once you have Prometheus running you should be able to check its current status 
 
 ```bash
 # pipe it to less because there's a lot of data!
-$ curl "http://$(triton ip prometheus_prometheus_1):9090/telemetry" | less
+$ curl "http://$(triton ip prometheus_prometheus_1):9090/metrics" | less
 ```

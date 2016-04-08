@@ -24,10 +24,10 @@ scrape_configs:
     scrape_interval: 5s
     scrape_timeout: 10s
 
-    metrics_path: /telemetry
+    metrics_path: /metrics
     # scheme defaults to 'http'.
 
     target_groups:
-    {{ if service "telemetry" }} - targets: [{{range $i, $e := service "telemetry"}}{{if ne $i 0}},{{end}}'{{$e.Address}}:{{$e.Port}}'{{end}},'localhost:9090']
+    {{ if service "containerbuddy" }} - targets: [{{range $i, $e := service "containerbuddy"}}{{if ne $i 0}},{{end}}'{{$e.Address}}:{{$e.Port}}'{{end}},'localhost:9090']
     {{ else }} - targets: ['localhost:9090']
     {{ end }}
